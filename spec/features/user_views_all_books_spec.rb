@@ -11,8 +11,6 @@ feature 'user can view all the books on the shelf' do
 
     books.each do |book|
       expect(page).to have_content(book.title)
-      expect(page).to have_content(book.author)
-      expect(page).to have_content(book.year)
     end
   end
 end

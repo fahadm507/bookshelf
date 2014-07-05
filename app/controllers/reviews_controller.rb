@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     @book = Book.find(params[:book_id])
     @review = @book.reviews.build(review_params)
     if @review.save
-      redirect_to "/books/#{@book.id}"
+      redirect_to book_path(@book)
     else
       flash[:notice]= "Please provide the required input"
       render :new
