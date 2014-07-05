@@ -1,0 +1,13 @@
+
+  <%= @book.title %>
+  <%= @book.author%>
+  <%= @book.year%>
+  <%= @book.description%>
+  <%= @book.category%>
+
+  <h3>Reviews on scale of 5</h3>
+  <%= link_to "New Review", new_book_review_path(@book) %></a>
+    <% @book.reviews.each do |review| %>
+      <li>Rate: <%= review.rating %></li>
+      <li><%= review.body %></li>
+    <%end%>
