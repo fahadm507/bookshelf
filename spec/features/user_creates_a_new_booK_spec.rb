@@ -6,36 +6,47 @@ feature "user creates " do
 
     visit new_book_path
 
-    book = FactoryGirl.build(:book)
-    fill_in "title", with: book.title
-    fill_in "author", with: book.author
-    fill_in "year", with: book.year
-    fill_in "description", with: book.description
+    expect(page).to have_content "Add your book to the shelf"
 
-    click_on "Create book"
+    book = FactoryGirl.build(:book)
+    fill_in "Title", with: book.title
+    fill_in "Author", with: book.author
+    fill_in "Year", with: book.year
+    fill_in "Description", with: book.description
+    fill_in "Category", with: book.category
+
+    click_on "Save book"
 
     expect(page).to have_content "Your book has been saved!"
-    expect(page).to have_content "List of all books"
   end
 
-  # it "authorized user submits invalid post and is denied" do
-  #   user = FactoryGirl.create(:user)
-  #   sign_in_as(user)
+  it "does not create a new book when required input is not provided" do
 
-  #   visit new_beard_path
+    visit new_book_path
 
-  #   click_on "Create Beard"
+    expect(page).to have_content "Add your book to the shelf"
 
-  #   expect(page).to_not have_content "Success"
-  #   expect(page).to have_content "Your beard could not be saved!"
-  # end
+    book = FactoryGirl.build(:book)
+    fill_in "Title", with:""
+    fill_in "Author", with:""
+    fill_in "Year", with: book.year
+    fill_in "Description", with: book.description
+    fill_in "Category", with: book.category
 
-  # it "unauthorized user tries to visit posts page" do
-  #   visit new_beard_path
+    click_on "Save book"
 
-  #   expect(page).to_not have_content "Description"
-  #   expect(page).to have_content "You need to sign in or sign up before continuing"
-  # end
+    expect(page).to have_content "Some of the fields were invalid"
+  end
 
+  it "user attempts to send an empty form" do
+
+    visit new_book_path
+
+    expect(page).to have_content "Add your book to the shelf"
+
+    click_on "Save book"
+
+    expect(page).to have_content "Some of the fields were invalid"
+  end
 
 end

@@ -1,0 +1,15 @@
+<div class="row ">
+  <div class="col-lg-12 text-center">
+    <a class="btn-large btn" href="/books">Back to Bookshelf</a>
+    <h3>Add your book to the shelf</h3>
+    <%= bootstrap_form_for @book do |f|%>
+      <%= f.text_field :title %>
+      <%= f.text_field :author %>
+      <%= f.text_field :year %>
+      <%= f.text_field :description %>
+      <%= f.text_field :category %>
+      <br>
+      <%= f.submit "Save book", :class => "btn-large btn-success" %>
+    <%end%>
+  </div>
+</div>
