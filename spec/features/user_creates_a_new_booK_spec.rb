@@ -43,9 +43,7 @@ feature "user creates " do
     visit new_book_path
 
     expect(page).to have_content "Add your book to the shelf"
-
     click_on "Save book"
-
     expect(page).to have_content "Some of the fields were invalid"
   end
 
