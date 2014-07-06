@@ -3,4 +3,5 @@ class Book < ActiveRecord::Base
   validates :title, presence: true
   validates :author, presence: true
   validates :year, presence: true, numericality: true, length: {is: 4}
+  validates :description, length: {maximum: 500}
 end
