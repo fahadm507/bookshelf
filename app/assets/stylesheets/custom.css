@@ -13,3 +13,35 @@ li {
 .reviews {
   padding:10px;
 }
+.navbar {
+  background-color:#f3f3f3;
+  height:40px;
+}
+.navigation .list-group li{
+  display:inline-block;
+  font-weight: bold;
+  font-size: 16pt;
+  padding:10px;
+  list-style-type:none;
+}
+
+.form{
+  margin:0px;
+  padding:0px;
+  background-color:#f3f3f3;
+  border-radius:10px;
+}
+
+.book-details {
+   background-color:#f3f3f3;
+   padding:10px;
+   margin-top:10px;
+   border-radius:10px;
+}
+
+.home{
+   background-color:#f3f3f3;
+   padding:10px;
+   margin-top:10px;
+   border-radius:10px;
+}

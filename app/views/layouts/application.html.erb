@@ -7,14 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <% if flash.any? %>
-    <div class="notice">
-      <p><%= flash[:notice] %></p>
+  <header class="row">
+    <div class="navbar col-lg-12">
+      <div class="navigation">
+        <ul class="list-group text-center">
+          <li><a href="/books">Bookshelf</a></li>
+          <li><a href="/books/new">List New Book</a></li>
+          <li><a href="/books">All books</a></li>
+        </ul>
+      </div>
     </div>
-  <% end %>
-  <%= yield %>
-</div>
+  </header>
 
-</body>
-</html>
+  <div class="container">
+    <% if flash.any? %>
+      <div class="notice">
+        <p><%= flash[:notice] %></p>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
+
+  </body>
+  </html>
